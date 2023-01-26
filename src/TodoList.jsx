@@ -7,7 +7,7 @@ export default function TodoList() {
   const [WithTodo, setWithoutTodo] = useState(true);
 
   // Local date  and time for  print with todos
-  const [date] = useState(new Date().toLocaleTimeString());
+  const [date] = useState(new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' }));
 
   // This function is store todos in 'TodoItems' array
   const ItemsList = () => {
