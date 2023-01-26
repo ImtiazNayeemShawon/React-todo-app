@@ -6,30 +6,17 @@ export default function TodoList() {
   const [TodoItems, SetTodoItems] = useState([]);
   const [WithTodo, setWithoutTodo] = useState(true);
 
-  {
-    /* Local date  and time for  print with todos */
-  }
-  const [date] = useState(
-    new Date().toLocaleDateString("en-US", {
-      hour: "numeric",
-      minute: "numeric",
-      month: "long",
-      day: "numeric",
-    })
-  );
-  {
-    /* This function is store todos in 'TodoItems' array*/
-  }
+  // Local date  and time for  print with todos
+  const [date] = useState(new Date().toLocaleTimeString());
 
+  // This function is store todos in 'TodoItems' array
   const ItemsList = () => {
     setWithoutTodo(false),
       SetTodoItems((oldItems) => {
         return [...oldItems, InputTodos];
       });
   };
-  {
-    /* This function for save todos by Enter key*/
-  }
+  // This function for save todos by Enter key
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       ItemsList(), setWithoutTodo(false);
@@ -39,7 +26,7 @@ export default function TodoList() {
   return (
     <div>
       <div className="grid grid-cols-2 max-sm:grid-cols-1">
-        <div className="m-10 bg-gray-50 ">
+        <div className="m-10 bg-gray-50 max-sm:m-1">
           {/* This condition for conditional rendering if there have no todo render a icon and a text if there have todolist the icon woill be hidden */}
 
           {WithTodo ? (
@@ -49,7 +36,7 @@ export default function TodoList() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="w-44 h-44 m-auto mt-44 text-indigo-500"
+                className="w-44 h-44 m-auto mt-44 text-indigo-500 "
               >
                 <path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" />
                 <path
@@ -67,22 +54,28 @@ export default function TodoList() {
             <ul className="p-10">
               {TodoItems.map((todos, index) => {
                 return (
-                  <div className="flex  text-gray-600 font-semibold bg-slate-200 leading-7 pl-5 p-3 m-1 rounded-lg max-w-96 ">
-                    <p className="text-left" key={index}>
+                  <div
+                    className="flex justify-between capitalize text-gray-600 font-semibold bg-slate-200 leading-7 pl-5 p-3 m-1 rounded-lg max-w-96 "
+                    key={index}
+                  >
+                    <p className="text-left ">
+                      <input className="text-green mr-4" type="checkbox" />
                       {index + 1}. {todos}
                     </p>
-                    <p className="text-right  ml-11">{date}</p>
+                    <p className="text-right  ml-11 font-light uppercase">
+                      {date}
+                    </p>
                   </div>
                 );
               })}
             </ul>
           )}
         </div>
-        <div className="block m-auto mt-80">
+        <div className="block m-auto mt-80 max-sm:mt-2">
           {/* This input for input todos from users */}
 
           <input
-            className="bg-gray-300 text-center font-semibold text-gray-600 p-2 rounded w-80 outline-0"
+            className="bg-gray-300 text-center capitalize text-gray-600 p-2 rounded w-80 outline-0"
             type="text"
             placeholder="ENTER YOUR TODO'S"
             value={InputTodos}
@@ -93,7 +86,7 @@ export default function TodoList() {
           {/* Button for save todos in list */}
 
           <button
-            className="bg-blue-500 p-2 pl-5 pr-5 rounded text-slate-50 font-semibold mt-7 m-auto block"
+            className="bg-blue-500 p-2 pl-5 pr-5 rounded text-slate-50 font-semibold mt-7 m-auto block max-sm:mt-3 outline-none"
             onClick={ItemsList}
           >
             Save
