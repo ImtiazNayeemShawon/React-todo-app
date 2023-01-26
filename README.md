@@ -78,6 +78,6 @@ Vite is a next-generation, front-end tool that focuses on speed and performance.
 
 ## © Author of this project
 
-Imtiaz Nayeen Shawon 
+Imtiaz Nayeem Shawon 
 
 Front-end developer 
