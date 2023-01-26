@@ -1,7 +1,7 @@
 
 # TodoList App by react and tailwind CSS
 ## Introduction
-This code is a React functional component called "TodoList" that creates a simple to-do list application. The component uses the useState hook from React to manage the state of the application, which includes the input for new to-do items, the list of to-do items, and whether or not the list is empty.
+This project is a React   simple to-do list application."TodoList" The component uses the useState hook from React to manage the state of the application, which includes the input for new to-do items, the list of to-do items, and whether or not the list is empty.
 
 # Component Structure
 The component starts by importing the React library, and the useState hook from React. Then it creates a functional component called "TodoList" that returns JSX to be rendered on the page.
