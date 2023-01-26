@@ -12,6 +12,7 @@ export default function TodoList() {
   // This function is store todos in 'TodoItems' array
   const ItemsList = () => {
     setWithoutTodo(false),
+      setInputTodos(""),
       SetTodoItems((oldItems) => {
         return [...oldItems, InputTodos];
       });
@@ -20,6 +21,7 @@ export default function TodoList() {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       ItemsList(), setWithoutTodo(false);
+      setInputTodos("");
     }
   };
 
@@ -55,11 +57,11 @@ export default function TodoList() {
               {TodoItems.map((todos, index) => {
                 return (
                   <div
-                    className="flex justify-between capitalize text-gray-600 font-semibold bg-slate-200 leading-7 pl-5 p-3 m-1 rounded-lg max-w-96 "
+                    className="flex justify-between max-sm:block capitalize text-gray-600 font-semibold bg-slate-100 leading-7 pl-5 p-3 m-1 rounded-lg w-full"
                     key={index}
                   >
                     <p className="text-left ">
-                      <input className="text-green mr-4" type="checkbox" />
+                      <input className=" mr-4 " type="checkbox" />
                       {index + 1}. {todos}
                     </p>
                     <p className="text-right  ml-11 font-light uppercase">
